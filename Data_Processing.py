@@ -8,3 +8,6 @@ m = user_rating_matrix[["userId", "movieId", "rating"]]
 user_rating = m.pivot(index="userId", columns="movieId", values="rating")
 
 user_rating.head()
+
+top_list = user_rating.unstack().groupby(
+    "movieId").mean().sort_values(ascending=False)
