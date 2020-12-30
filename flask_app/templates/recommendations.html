@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css" media="screen" />
+    <title>Recommendations</title>
+</head>
+
+<body>
+    <main>
+        <h1>You might like these movies:</h1>
+        <div class="wrapper --horizontal">
+            {% for i in range(movie_info.shape[0])%}
+            <div class="card">
+                <img src={{movie_info.image_url[i]}}>
+                <div class="description">
+                    <span id="movietitle">Movie Title: {{movie_info.title[i]}}</span>
+                    <span id="overview">Overview: {{movie_info.overview[i]}}</span>
+                    <!-- <span>Release date: {{movies.release_date}}</span></br> -->
+                    <!-- <span>Rated: {{movies.Rated}}</span></br> -->
+                    <span>Release date: {{movie_info.release_date[i]}}</span>
+                    <span>Popularity: {{movie_info.popularity[i]}}</span>
+                </div>
+
+                <iframe width="420" height="345" src={{movie_info.video_url[i]}}>
+                </iframe>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <form action="/">
+            <input type="submit" value="Return to main page" />
+        </form>
+    </main>
+</body>
+
+</html>
